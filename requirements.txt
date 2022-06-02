@@ -1,0 +1,4 @@
+# This file is for development requirements, setup.py already includes the necessary packages for pip to install with
+# We should pin these to work with both py35 upto p39
+requests
+backoff==1.11.1

@@ -1,0 +1,36 @@
+# Please feel free to add your editors' files while you are working with the project.
+# But do restrain yourself from adding non-project related files here.
+
+# Python
+__pycache__
+*.pyc
+
+# IDEs & Editors
+.idea
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+# Frameworks & Libraries
+dist
+.tox
+
+# Project Specific
+omnisdk.egg-info
+
+# ETC
+.env
