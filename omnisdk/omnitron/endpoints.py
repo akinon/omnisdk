@@ -223,7 +223,7 @@ class ChannelErrorReportEndpoint(OmnitronApiEndpoint):
 class ChannelOrderItemEndpoint(OmnitronApiEndpoint):
     def __init__(self, *args, **kwargs):
         super().__init__(endpoint="channel/{channel_id}/order_items",
-                         model=Address, *args, **kwargs)
+                         model=OrderItem, *args, **kwargs)
 
 
 class ChannelProductCategoryEndpoint(OmnitronApiEndpoint):
