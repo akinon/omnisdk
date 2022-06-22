@@ -5,7 +5,7 @@ with open("README.md") as f:
 
 setup(
     name="omnisdk",
-    version="0.0.96",
+    version="0.0.97",
     packages=["omnisdk", "omnisdk.omnitron"],
     url="https://bitbucket.org/akinonteam/omnisdk",
     description="SDK for Omni Api",

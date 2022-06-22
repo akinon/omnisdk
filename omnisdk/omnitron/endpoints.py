@@ -242,3 +242,9 @@ class ChannelExtraProductStockEndpoint(OmnitronApiEndpoint):
     def __init__(self, *args, **kwargs):
         super().__init__(endpoint="channel/{channel_id}/extra_product_stocks",
                          model=ProductStock, *args, **kwargs)
+
+
+class ChannelRetailStoreEndpoint(OmnitronApiEndpoint):
+    def __init__(self, *args, **kwargs):
+        super().__init__(endpoint="channel/{channel_id}/retail_stores",
+                         model=RetailStore, *args, **kwargs)
