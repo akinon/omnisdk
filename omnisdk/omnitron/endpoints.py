@@ -22,6 +22,59 @@ class ChannelEndpoint(OmnitronApiEndpoint):
         super().__init__(endpoint="channels", model=Channel, *args, **kwargs)
 
 
+class OrderByNumberEndpoint(OmnitronApiEndpoint):
+    def __init__(self, *args, **kwargs):
+        super().__init__(endpoint="order_number", model=Order, *args, **kwargs)
+
+
+class OrderItemEndpoint(OmnitronApiEndpoint):
+    def __init__(self, *args, **kwargs):
+        super().__init__(endpoint="order_items", model=OrderItem,
+                         *args, **kwargs)
+
+
+class PaymentOptionEndpoint(OmnitronApiEndpoint):
+    def __init__(self, *args, **kwargs):
+        super().__init__(endpoint="payment_options", model=PaymentOption,
+                         *args, **kwargs)
+
+
+class TransactionEndpoint(OmnitronApiEndpoint):
+    def __init__(self, *args, **kwargs):
+        super().__init__(endpoint="transactions",
+                         model=Transaction, *args, **kwargs)
+
+
+class OrderTransactionEndpoint(OmnitronApiEndpoint):
+    def __init__(self, *args, **kwargs):
+        super().__init__(endpoint="order_transactions",
+                         model=OrderTransaction, *args, **kwargs)
+
+
+class PayOnDeliveryTransactionEndpoint(OmnitronApiEndpoint):
+    def __init__(self, *args, **kwargs):
+        super().__init__(endpoint="pay_on_delivery_transactions",
+                         model=PayOnDeliveryTransaction, *args, **kwargs)
+
+
+class LoyaltyTransactionEndpoint(OmnitronApiEndpoint):
+    def __init__(self, *args, **kwargs):
+        super().__init__(endpoint="loyalty_transactions",
+                         model=LoyaltyTransaction, *args, **kwargs)
+
+
+class FundsTransferTransactionEndpoint(OmnitronApiEndpoint):
+    def __init__(self, *args, **kwargs):
+        super().__init__(endpoint="funds_transfer_transactions",
+                         model=FundsTransferTransaction, *args, **kwargs)
+
+
+class BexTransactionEndpoint(OmnitronApiEndpoint):
+    def __init__(self, *args, **kwargs):
+        super().__init__(endpoint="bex_transactions",
+                         model=BexTransaction, *args, **kwargs)
+
+
 class ChannelCategoryTreeEndpoint(OmnitronApiEndpoint):
     def __init__(self, *args, **kwargs):
         super().__init__(endpoint="channel/{channel_id}/category_trees",
