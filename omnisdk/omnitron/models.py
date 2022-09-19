@@ -426,6 +426,10 @@ class UserProfile(BaseModel):
     pass
 
 
+class User(BaseModel):
+    pass
+
+
 class BEPermissionNamespace(BaseModel):
     pass
 

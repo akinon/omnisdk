@@ -22,6 +22,11 @@ class ChannelEndpoint(OmnitronApiEndpoint):
         super().__init__(endpoint="channels", model=Channel, *args, **kwargs)
 
 
+class ActiveUserEndpoint(OmnitronApiEndpoint):
+    def __init__(self, *args, **kwargs):
+        super().__init__(endpoint='active_user', model=User, *args, **kwargs)
+
+
 class OrderByNumberEndpoint(OmnitronApiEndpoint):
     def __init__(self, *args, **kwargs):
         super().__init__(endpoint="order_number", model=Order, *args, **kwargs)
