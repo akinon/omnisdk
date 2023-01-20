@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 
 
 def backoff_handler(details):
-    logger.error(f"backoff_handler - {str(details)}")
+    logger.info(f"backoff_handler - {str(details)}")
     time.sleep(10)
 
 
