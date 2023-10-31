@@ -5,12 +5,13 @@ import weakref
 
 import requests
 
-from .exceptions import ValidationError, ClientNotInitializedException
+from .exceptions import ClientNotInitializedException, ValidationError
 
 
 class BaseClient(object, metaclass=abc.ABCMeta):
     client_route = ""
     instance = {}
+    _token = None
 
     def __init__(self, base_url, username, password):
         self.session = requests.Session()
@@ -19,8 +20,7 @@ class BaseClient(object, metaclass=abc.ABCMeta):
         self.base_url = base_url + self.client_route
         self.username = username
         self.password = password
-        key = self.refresh_key()
-        self.session.headers.update({"Authorization": key})
+        self.session.headers.update({"Authorization": self.token})
 
         BaseClient.instance[self.__class__.__name__] = weakref.proxy(self)
 
@@ -39,9 +39,20 @@ class BaseClient(object, metaclass=abc.ABCMeta):
             raise ClientNotInitializedException
         return api
 
+    @property
+    def token(self):
+        if not self._token:
+            self.refresh_key()
+        return self._token
+
+    def set_token(self, token):
+        self._token = token
+
     def refresh_key(self):
+        self.session.headers.pop("Authorization", None)
         response = self.session.post(
-            self.base_url + "auth/login/", json=dict(username=self.username, password=self.password)
+            self.base_url + "auth/login/",
+            json=dict(username=self.username, password=self.password),
         )
         # TODO fix non 400 html responses raises exception
         if response.status_code == 400:  # Most likely authentication error
@@ -50,4 +61,5 @@ class BaseClient(object, metaclass=abc.ABCMeta):
             # halt the process instead of
             json = response.json()
             raise ValidationError(str(json), json=json)
-        return "Token {}".format(response.json()["key"])
+        self.set_token("Token {}".format(response.json()["key"]))
+        return self.token
